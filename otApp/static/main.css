@@ -1,0 +1,209 @@
+main{
+  padding:0;
+}
+
+/*--------------------------------NAV BAR-------------------------------------------------------------------*/
+.navbar-light .navbar-nav .nav-link {
+    color:#e6ebf3;
+}
+.navbar-light .navbar-nav .nav-link.active{
+    color:#e6ebf3;
+}
+.navbar a{
+    color:#e6ebf3;
+}
+#main-link{
+    font-size: 1.3rem;
+    font-family: 'Work Sans', sans-serif;
+}
+.main-nav{
+  width:100%;
+}
+.right-link{
+  width:15rem;
+}
+.navbar{
+  height:4rem;
+  background:#031d42;
+}
+
+/*--------------------------------HOME PAGE-----------------------------------------------------------------*/
+
+.home-cont{
+    height:100vh;
+    /*background-image: url("images/main.png");
+    background-size:100%;*/
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 0;
+}
+.right{
+  padding:2rem;
+
+}
+.left {
+    background-image: url("images/background2.jpg");
+    background-size:100%;
+}
+.right h2{
+  font-family: 'Crimson Text', serif;
+  font-size:5rem;
+  text-align: center;
+}
+.right p{
+  text-align: center;
+}
+.robot img{
+  height:10rem;
+}
+.coa-btn{
+  border:1px solid #031d42;
+  text-decoration: none;
+  background: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.coa-btn:hover{
+  background:#031d42;
+  color:white;
+}
+.coa-btn a{
+  text-decoration: none;
+  color:#000;
+}
+.coa-btn a:hover{
+
+  color:#fff;
+}
+
+.center-cont{
+    padding:2rem;
+}
+
+.center-cont h1{
+    font-family: 'Crimson Text', serif;
+    color:#e6ebf3;
+    font-size:5rem;
+    text-align: center;
+
+}
+
+.center-cont p{
+    color:#e6ebf3;
+    margin: 0;
+    padding: 0px 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+
+.center-cont input{
+    border-radius:3rem;
+    width:45rem;
+
+}
+
+/*-----------------------submit button------------------------------*/
+.submit-btn{
+    border-radius:3rem;
+    position: relative;
+    background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    /*background: linear-gradient(45deg, #0652c5 0%, #d4418e 75%, #f53844 100% );*/
+    border:none;
+    padding:1%;
+    /*transition: linear-gradient 7s;*/
+    z-index: 1;
+    margin-bottom:0;
+    width:45rem;
+}
+.submit-btn:after {
+  border-radius:3rem;
+  position: absolute;
+  content: "Search";
+  text-align: center;
+  padding:1%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 50%, rgba(152,68,183,1) 100%);
+  /*background: linear-gradient(45deg, #0652c5 0%, #d4418e 100%);*/
+  z-index: 2;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+.submit-btn:hover:after{
+    opacity: 1;
+    /*background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 50%, rgba(152,68,183,1) 100%);*/
+    /*background: red;*/
+}
+#home-btn{
+    background: none;
+    border:none;
+    color: #010c1b;
+}
+/*---------------------------------------------------------Register--------------------------------------------------*/
+.form{
+  width:30rem;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*chatbot*/
+.chatBox{
+  position: relative;
+  margin: 1%;
+  padding: 10px 10px;
+  border: 1px solid #ececec;
+  border-radius: 1px;
+  max-height: 80vh;
+  min-height: 50vh;
+    overflow: scroll;
+}
+
+
+.inputum{
+  background-color: #ececec;
+  padding:2%;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.w3-input{padding:10px;display:block;border:1px solid #ccc; width:100%;
+ margin: 1px auto !important;}
+
+ .response{
+  border: 1px solid #007AFF;
+  background: #007AFF;
+  padding:2%;
+  width: 40%;
+  color: #fff;
+  border-radius:  20px;
+ }
+ .request{
+  background: #00CC47;
+  border: 1px solid #00CC47;
+  padding:2%;
+  width: 40%;
+  color: #fff;
+  border-radius: 20px;
+  float: right;
+
+
+ }
+ .btun{
+  position: absolute;
+  right: 2.5%;
+  bottom: 22%;
+ }
+/*=-------------------------------------------------------------------------------------------------------------------*/
+/*background-color: #d4418e;
+background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
+background-color: #42378f;
+background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);*/
