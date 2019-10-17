@@ -1,15 +1,46 @@
 {% extends "layout.html" %}
 {%block content%}
 <div class="container">
-<h4 class="display-4 text-center"> Your chat </h4>
+        <h4 class="display-4 text-center"> Your chat </h4>
         <hr>
-        <div class="chatBox" id="chatBox">
+        <div class="chatBox row " id="chatBox">
 
-        <div class="response"><div id="AutoMessage"> <strong>ai therapist:</strong> <br>Hey, how's it goint?... </div></div>
+        <div class="col-sm ">
+            <div id="chatbox"> <strong>ai therapist:</strong>
+                <br><p class="botText response w-100 mt-0"><span>Hey, how's it going?... </span></p>
+            </div>
+        </div>
 
-        <div  id="request"></div>
-            <input class="w3-input" id="mesbox" type="text" placeholder="Say hello...">
-         </div>
+        <div  id="userInput" class="col-sm">
+
+        </div>
+            <!-- <input class="w3-input" id="mesbox" type="text" placeholder="Say hello..."> -->
+            <input class="w3-input" id="textInput" type="text" name="msg" placeholder="Message">
+            <input id="buttonInput" type="submit" value="Send">
+        </div>
 </div>
+<script>
+function getBotResponse() {
+var rawText = $("#textInput").val();
+var userHtml = '<p class="userText request w-100"><span>' + rawText + '</span></p>';
+$("#textInput").val("");
+$("#userInput").append(userHtml);
+document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+jQuery.get("{{ url_for('get_bot_response') }}", { msg: rawText }).done(function(data) {
+    var botHtml = '<p class="botText response w-100"><span>' + data + '</span></p>';
+    $("#chatbox").append(botHtml);
+    document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+    });
+}
+
+$("#textInput").keypress(function(e) {
+if(e.which == 13) {
+getBotResponse();
+}
+});
+$("#buttonInput").click(function() {
+getBotResponse();
+})
+</script>
 
 {%endblock content%}

@@ -6,6 +6,7 @@ from otApp.forms import HomeForm, RegistrationForm, LoginForm
 from otApp.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from otApp import app, db, bcrypt
+from otApp.chat import chatbot
 
 
 @app.route("/")
@@ -62,3 +63,10 @@ def logout():
 def chat():
     # form = HomeForm()
     return render_template('chat.html')
+
+
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')
+    response = chatbot(userText)
+    return response
