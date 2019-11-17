@@ -6,10 +6,10 @@ from otApp.models import User
 from flask_login import current_user
 
 
-class HomeForm(FlaskForm):
-    name = StringField(' ', validators=[DataRequired()], render_kw={
-                       "placeholder": "Say hello to start..."})
-    submit = SubmitField('Start')
+class FeelingsForm(FlaskForm):
+    inp = TextAreaField(' ', validators=[DataRequired()], render_kw={
+        "placeholder": "Start typing..."})
+    submit = SubmitField('Send')
 
 
 class RegistrationForm(FlaskForm):

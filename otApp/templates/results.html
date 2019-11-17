@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{%block content%}
+<div class="container-fluid">
+  <figure class="robot d-flex justify-content-center">
+      <img src="static\images\robot.png" alt="robot=icon">
+  </figure>
+  <p class="text-center">So I made you a little package of resourcs that may help. Try out the tips below or
+  take a look at one of the videos I found for you. I threw in a cheerful one just in case you want a laugh!</p>
+  <div class="container">
+    <div class="row pad border-top border-primary justify-content-between mb-5">
+      <div class="col-sm-6">
+        <h4>A few helpful tips...</h4>
+        <ol>
+          {% for h in h_list[:10] %}
+            <li> {{h}}</li>
+          {% endfor %}
+        </ol>
+
+      </div>
+      <div class="col-sm-5">
+
+        <div class="w-100 ytube mbottom ">
+          {% if emo=="sad" %}
+              <iframe class="w-100 h-100" src="https://www.youtube.com/embed/8Su5VtKeXU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          {% elif emo=="worry" %}
+              <iframe class="w-100 h-100" src="https://www.youtube.com/embed/4EaMJOo1jks" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         {% elif emo=="hate" %}
+          <iframe class="w-100 h-100" src="https://www.youtube.com/embed/BsVq5R_F6RA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          {% endif %}
+
+
+        </div>
+        <div class="w-100 ytube ">
+          <iframe class="w-100 h-100" src="https://www.youtube.com/embed/EtH9Yllzjcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+      </div>
+    </div>
+    <div></div>
+    <div class="w-100 pad border-top  border-primary articles">
+      <h4 class="text-center">Here are a few links that may be useful</h4>
+      <p>If you need more information or help, try checking out some of these detailed articles</p>
+      {% if emo=="sad" %}
+          <a href="https://www.huffpost.com/entry/21-ways-to-deal-with-sadn_b_5803672"><p>Huffington Post - Dealing with Sadness</p></a>
+          <a href="https://www.gundersenhealth.org/health-wellness/live-happy/healthy-ways-to-deal-with-sadness/"><p>Gunder's Health - Healthy Ways to Deal with Sadness</p></a>
+          <a href="https://thiswayup.org.au/how-do-you-feel/sad/"><p>This Way Up - Dealing with Sadness</p></a>
+      {% elif emo=="hate" %}
+         <a href="https://www.helpguide.org/articles/relationships-communication/anger-management.htm"><p>Help Guide - Anger Management</p></a>
+         <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/anger-management/art-20045434"><p>Mayo Clinic - Anger Management</p></a>
+        <a href="https://www.apa.org/topics/anger/control"><p>American Psychological Association - Controlling Anger Before it Controls you</p></a>
+     {% elif emo=="worry" %}
+     <a href="https://thiswayup.org.au/how-do-you-feel/worried/"><p>This Way Up - Dealing with Anxiety</p></a>
+     <a href="https://www.verywellmind.com/manage-your-anxiety-2584184"><p>Very Well Mind - Managing your anxiety</p></a>
+     <a href="https://www.psychologytoday.com/us/blog/why-we-worry/201206/10-tips-manage-your-worrying"><p>Psychology Today - Tips to Manage your Worrying</p></a>
+      {% endif %}
+
+
+    </div>
+    <div class= "row justify-content-between mb-5 border-top border-primary pad border-top border-primary">
+      <div class="col-sm-6">
+        <iframe class="w-100 h-100" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=counselling%20centers%20near%20me&key=AIzaSyB4Dpq3hBOqGUv4hlrKLbEZltGP9XbESjk" allowfullscreen></iframe>
+      </div>
+      <div class="col-sm-5">
+          <div class="bubble">Here are a couple of counselling centers in your city that you can
+          visit if you need more help. All the best!</div>
+          <div class="pointer"></div>
+          <figure class="robot d-flex justify-content-center">
+            <img src="static\images\robot.png" alt="robot=icon">
+          </figure>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+{%endblock content%}

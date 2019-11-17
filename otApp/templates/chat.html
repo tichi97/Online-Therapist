@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 {%block content%}
-<div class="container">
+<div id="test2" class="container">
         <h4 class="display-4 text-center"> Your chat </h4>
         <hr>
+        <div id="test">
         <div class="chatBox row " id="chatBox">
 
         <div class="col-sm ">
@@ -18,20 +19,39 @@
             <input class="w3-input" id="textInput" type="text" name="msg" placeholder="Message">
             <input id="buttonInput" type="submit" value="Send">
         </div>
+        </div>
+        <form name="myForm" id="myForm" method ="POST" action="{{ url_for('feelings') }}">
+            <input type="submit" value="Submit" />
+        </form>
+
 </div>
 <script>
 function getBotResponse() {
-var rawText = $("#textInput").val();
-var userHtml = '<p class="userText request w-100"><span>' + rawText + '</span></p>';
-$("#textInput").val("");
-$("#userInput").append(userHtml);
-document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-jQuery.get("{{ url_for('get_bot_response') }}", { msg: rawText }).done(function(data) {
-    var botHtml = '<p class="botText response w-100"><span>' + data + '</span></p>';
-    $("#chatbox").append(botHtml);
+    var rawText = $("#textInput").val();
+    // if (rawText=="quit"){
+    //     jQuery.get("{{ url_for('home') }}");
+    // }
+    var userHtml = '<p class="userText request w-100"><span>' + rawText + '</span></p>';
+    $("#textInput").val("");
+    $("#userInput").append(userHtml);
     document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-    });
+    jQuery.get("{{ url_for('get_bot_response') }}", { msg: rawText }).done(function(data) {
+        var botHtml = '<p class="botText response w-100"><span>' + data + '</span></p>';
+        var botdata = data;
+
+        $("#chatbox").append(botHtml);
+        document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+        if (botdata =="Let me see how I can help"){
+            submitform();
+        }
+        });
+
 }
+function submitform()
+    {
+      // alert('test');
+      document.myForm.submit();
+    }
 
 $("#textInput").keypress(function(e) {
 if(e.which == 13) {

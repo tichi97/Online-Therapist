@@ -34,7 +34,7 @@
                         "I am out of here",
                         "I have got to go",
                         "I'm done",
-                        "Im good thank you"
+                        "I'm good thank you"
                         ],
          "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!","Have a nice day!","It was nice chatting with you","See you later"],
          "context_set": ""
@@ -120,6 +120,18 @@
                         "Tell me, are you a human or no?"
                     ],
          "responses": ["I'm a chatbot, isn't that cool!", "I'm a bot", "I'm better than human :)"],
+         "context_set": ""
+        },
+        {"tag": "feelings",
+         "patterns": ["I'm feeling",
+                        "I'm feeling a bit",
+                        "I just feel ",
+                        "I feel so",
+                        "I just don't know",
+                        "I'm just feeling",
+                        "I wish"
+                    ],
+         "responses": ["Let me see how I can help"],
          "context_set": ""
         }
    ]

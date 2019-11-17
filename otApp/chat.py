@@ -2,18 +2,20 @@ import nltk
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()  # gets the root of the word
 
+from flask import render_template, url_for
 import numpy
 import tflearn
 import tensorflow as tf
 import random
 import json
 import pickle
+from otApp.emotion import check_emo
 
 with open("otApp/intents.json") as file:
     data = json.load(file)
 
 try:
-    with open("data.pickle", "rb") as f:
+    with open("otApp/data.pickle", "rb") as f:
         words, labels, training, output = pickle.load(f)
 
 except:
@@ -65,7 +67,7 @@ except:
     with open("data.pickle", "wb") as f:
         pickle.dump((words, labels, training, output), f)
 
-
+# ------------------------------------------------------------------------------------------
 tf.reset_default_graph()
 
 # neural network
@@ -83,9 +85,10 @@ model = tflearn.DNN(net)
 try:
     model.load("model.tflearn")
 except:
-                        # n_epoch:the number of times the model will see the training data
+    # n_epoch:the number of times the model will see the training data
     model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
     model.save("model.tflearn")
+# ----------------------------------------------------------
 
 
 def bag_of_words(s, words):
@@ -101,8 +104,14 @@ def bag_of_words(s, words):
     return numpy.array(bag)
 
 
+flag = 0
+
+
 def chatbot(inp):
     print("Start talking with the bot! (type quit to stop)")
+    # if flag == 1:
+    #     inp_pred = check_emo(inp)
+    #     return inp_pred
     while True:
         # inp = input("You: ")
         if inp.lower() == "quit":
@@ -117,12 +126,14 @@ def chatbot(inp):
             for tg in data["intents"]:
                 if tg["tag"] == tag:
                     responses = tg["responses"]
-
-            # print(random.choice(responses))
-            return random.choice(responses)
+                # if tag == "feelings":
+                #     url_for("feelings")
+                # else:
+                #     # print(random.choice(responses))
+                    return random.choice(responses), tag
         else:
             # print("I'm sorry, I don't understand")
-            return "I'm sorry, I don't understand"
+            return "I'm sorry, I don't understand. Let's talk about how you are feeling.", tag
 
 
 # print(chat())

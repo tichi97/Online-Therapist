@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{%block content%}
+<div class="container">
+        <h4 class="display-4 text-center"> Please type out everything that is bothering you. </h4>
+        <p>Be as descriptive as you can so I can better help you</p>
+        <hr>
+        <div >
+            <form method ="POST" action="{{ url_for('results') }}" class="form">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{form.inp.label(class="form-control-label")}}
+                    {%if form.inp.errors%}
+                        {{form.inp(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.inp.errors%}
+                                <span>{{error}}</span>
+                            {%endfor%}
+                        </div>
+                    {%else%}
+                        {{form.inp(class="form-control form-control-lg")}}
+                    {%endif%}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                    {{form.submit(class="btn btn-outline-info")}}
+            </div>
+
+        </form>
+        {% with messages = get_flashed_messages() %}
+           {% if messages %}
+                 <div class="alert alert-primary" role="alert">
+                    {{ messages[-1] }}
+                </div>
+           {% endif %}
+        {% endwith %}
+
+        </div>
+</div>
+<script>
+
+</script>
+
+{%endblock content%}
