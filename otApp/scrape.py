@@ -67,11 +67,4 @@ def angry():
 
 
 print(angry())
-# print(h2)
-# print(par2)
-# print(len(par))
-# print(len(h))
-# print()
-# print(len(par2))
-# print(len(h2))
-# print(anxiety)
+

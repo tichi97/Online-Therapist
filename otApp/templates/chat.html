@@ -15,7 +15,7 @@
         <div  id="userInput" class="col-sm">
 
         </div>
-            <!-- <input class="w3-input" id="mesbox" type="text" placeholder="Say hello..."> -->
+            
             <input class="w3-input" id="textInput" type="text" name="msg" placeholder="Message">
             <input id="buttonInput" type="submit" value="Send">
         </div>
@@ -28,9 +28,7 @@
 <script>
 function getBotResponse() {
     var rawText = $("#textInput").val();
-    // if (rawText=="quit"){
-    //     jQuery.get("{{ url_for('home') }}");
-    // }
+    
     var userHtml = '<p class="userText request w-100"><span>' + rawText + '</span></p>';
     $("#textInput").val("");
     $("#userInput").append(userHtml);
